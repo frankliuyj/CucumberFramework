@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<listeners>
+		<listener class-name="com.frank.cucumberframework.framework.utils.supporter.RetryTransformerListener" />
+	</listeners>
+    <test name="ParallelThread1">
+        <!-- Specify the Run Suite classes which needed to be run in parallel -->
+        <classes>
+            <class name="com.frank.cucumberframework.testrunners.WebTestRunner"/>
+        </classes>
+    </test>
+</suite>

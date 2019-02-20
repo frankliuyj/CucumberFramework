@@ -1,0 +1,123 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 41187501734,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hook.preparePrecondtion()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Success",
+        "description": "",
+        "id": "login:-as-a-enduser-of-baidu-search-service--i-can-search-keyword-in-chrome-app;success",
+        "after": [
+          {
+            "result": {
+              "duration": 15751577279,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hook.executePostcondition(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 23798323372,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "visit baidu search engine homepage",
+            "match": {
+              "location": "SearchScreenSteps.browserToSearchPage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4791464577,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "input a keyword \"test\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"test\"",
+                  "offset": 16
+                }
+              ],
+              "location": "SearchScreenSteps.inputKeyword(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 9661370991,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "click search botton",
+            "match": {
+              "location": "SearchScreenSteps.click_search_botton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.AssertionError: expected [true] but found [false]\r\n\tat org.testng.Assert.fail(Assert.java:96)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\r\n\tat org.testng.Assert.assertTrue(Assert.java:44)\r\n\tat org.testng.Assert.assertTrue(Assert.java:54)\r\n\tat com.frank.cucumberframework.stepdefinition.app.SearchResultScreenSteps.isSearchResultPageShown(SearchResultScreenSteps.java:31)\r\n\tat ✽.search result of \"test\" is shown in chrome app(src/test/resources/features/mobile_search.feature:9)\r\n",
+              "duration": 3125235447,
+              "status": "failed"
+            },
+            "line": 9,
+            "name": "search result of \"test\" is shown in chrome app",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"test\"",
+                  "offset": 17
+                }
+              ],
+              "location": "SearchResultScreenSteps.isSearchResultPageShown(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@app"
+          },
+          {
+            "name": "@success"
+          }
+        ]
+      }
+    ],
+    "name": "Login: As a enduser of baidu search service, I can search keyword in chrome app",
+    "description": "",
+    "id": "login:-as-a-enduser-of-baidu-search-service--i-can-search-keyword-in-chrome-app",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/mobile_search.feature",
+    "tags": [
+      {
+        "name": "@app",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]
