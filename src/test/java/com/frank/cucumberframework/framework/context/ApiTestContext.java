@@ -1,14 +1,8 @@
 package com.frank.cucumberframework.framework.context;
 
-import com.frank.cucumberframework.framework.api.apidriver.BaseApiDriver;
-
 public class ApiTestContext {
 
-	 private static BaseApiDriver baseAppDriver;
-	 
-	 public static BaseApiDriver getApiDriver() {
-		 return baseAppDriver;
-	 }
-	 
+   //Since Rest Assured has taken static operations, so there's no need to transfer the objects.
+   //However if there's any change related with WireMock server, it can put it here.
  
 }

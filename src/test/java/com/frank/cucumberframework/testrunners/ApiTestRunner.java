@@ -1,10 +1,7 @@
 package com.frank.cucumberframework.testrunners;
 
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
-
-
 
 @CucumberOptions(
         features = "src\\test\\resources\\features\\api_contact_curd.feature",
