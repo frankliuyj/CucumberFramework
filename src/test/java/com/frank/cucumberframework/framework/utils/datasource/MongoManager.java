@@ -31,7 +31,7 @@ public class MongoManager implements IDataSource {
 		this.collectionName = collectionName;
 	}
 
-	private void initDBConnections(String DBName, String collectionName) {
+	private void startDBConnection(String DBName, String collectionName) {
 		MongoClientURI connectionString = new MongoClientURI(
 				"mongodb+srv://xinwang:123456abc*@db-mohet.azure.mongodb.net/");
 		// MongoClientURI("mongodb://xinwang:123456abc*@db-shard-00-00-mohet.azure.mongodb.net:27017,db-shard-00-01-mohet.azure.mongodb.net:27017,db-shard-00-02-mohet.azure.mongodb.net:27017/test?ssl=true&replicaSet=db-shard-0&authSource=admin&retryWrites=true");
@@ -43,7 +43,7 @@ public class MongoManager implements IDataSource {
 			initData();
 	}
 
-	private void stopDBConnections() {
+	private void stopDBConnection() {
 		mongoClient.close();
 		json = null;
 		mongoClient = null;
@@ -64,7 +64,7 @@ public class MongoManager implements IDataSource {
 
 	public String getProperty(String key) {
 
-		initDBConnections(dbName, collectionName);
+		startDBConnection(dbName, collectionName);
 
 		FindIterable<Document> findIterable = collection.find();
 		MongoCursor<Document> mongoCursor = findIterable.iterator();
@@ -78,14 +78,14 @@ public class MongoManager implements IDataSource {
 		json = new JSONObject(jsonString);
 		String value = json.getString(key);
 
-		stopDBConnections();
+		stopDBConnection();
 		//System.out.println(value);
 		return value;
 
 	}
 
 	public void writeNewProperty(String key, String value) {
-		initDBConnections(dbName, collectionName);
+		startDBConnection(dbName, collectionName);
 		
 		FindIterable<Document> findIterable = collection.find();
 		Document doc = findIterable.first();
@@ -95,7 +95,7 @@ public class MongoManager implements IDataSource {
 			collection.updateOne(filter, new Document("$set", doc));
 		}
 
-		stopDBConnections();
+		stopDBConnection();
 
 	}
 
